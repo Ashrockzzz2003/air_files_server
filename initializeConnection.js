@@ -1,0 +1,26 @@
+const mysql = require('mysql2');
+
+const establishConnection = () => {
+
+    const db = mysql.createConnection({
+        host: 'localhost',
+        user: 'root',
+        password: 'password',
+        database: 'air_files'
+    });
+
+    db.connect((err) => {
+        if (err) {
+            console.log("[ERROR]: Failed to connect to MySQL");
+            console.log(err);
+        }
+        else {
+            console.log("[MESSAGE]: Connected to MySQL...");
+        }
+    });
+
+    return [db];
+
+}
+
+module.exports = establishConnection;

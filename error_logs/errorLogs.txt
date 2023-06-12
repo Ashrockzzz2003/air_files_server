@@ -1,0 +1,16 @@
+[ERROR, userUploadFile, 2023-06-12 05:11:27]: ReferenceError: timeStamp is not defined
+
+[ERROR, sendCompressedUserFiles, 2023-06-12 06:33:30]: ReferenceError: print is not defined
+
+[ERROR, sendCompressedUserFiles, 2023-06-12 06:53:40]: Error: Cannot find module 'node-zip'
+Require stack:
+- /Users/ashrock_m13/Ashrockzzz/Projects_2023/servers/air_files/controller/userWebController.js
+- /Users/ashrock_m13/Ashrockzzz/Projects_2023/servers/air_files/routes/userWeb.js
+- /Users/ashrock_m13/Ashrockzzz/Projects_2023/servers/air_files/index.js
+
+[ERROR, sendCompressedUserFiles, 2023-06-12 06:55:05]: Error: ENOENT: no such file or directory, open '/userFiles/84ca4686de3bde7de35b03f9e6abc743'
+
+[ERROR, sendCompressedUserFiles, 2023-06-12 07:01:04]: ReferenceError: zip is not defined
+
+[ERROR, sendCompressedUserFiles, 2023-06-12 07:02:05]: TypeError: res.zip is not a function
+
