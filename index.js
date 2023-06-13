@@ -56,11 +56,11 @@ if (cluster.isMaster) {
         cluster.fork();
     }
 } else {
-    server.listen(PORT, hostname, (err) => {
+    server.listen(PORT, (err) => {
         if (err) {
             console.log('[ERROR]: Error starting server.');
         } else {
-            console.log(`[MESSAGE]: Process ${pid} listening on HOST ${hostname} PORT ${PORT}`);
+            console.log(`[MESSAGE]: Process ${pid} listening on PORT ${PORT}`);
         }
     })
 }

@@ -11,6 +11,12 @@ var zip = require('express-zip');
 
 module.exports = {
     // get userData from token and files from req.files
+    testResponse: async (req, res) => {
+        return res.status(200).send({
+            "message": "CONNECTION ESTABLISHED"
+        });
+    },
+
     userUploadFile: [
         webTokenValidator,
         upload.single('files'),

@@ -8,5 +8,6 @@ router.post('/register', userWebController.userRegister);
 router.post('/upload', userWebController.userUploadFile);
 router.get('/getUserFiles', webTokenValidator, userWebController.getUserFiles);
 router.get('/downloadUserFiles', webTokenValidator, userWebController.sendCompressedUserFiles);
+router.get('/test', userWebController.testResponse);
 
 module.exports = router;
