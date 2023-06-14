@@ -13,7 +13,6 @@ const { generateKey } = require('./RSA/keyGen');
 const createViews = require('./schema/createViews');
 const establishConnection = require('./initializeConnection.js');
 const fs = require('fs');
-const { hostname } = require('os');
 
 const concurrencyLimit = 10;
 const PORT = 3000;
@@ -53,7 +52,9 @@ if (cluster.isMaster) {
     initializeTwo(); // Run only once in production
 
     for (let i = 0; i < concurrencyLimit; i++) {
-        cluster.fork();
+        cluster.fork().on('exit', (worker, code, signal) => {
+            console.log(`[MESSAGE]: Worker ${worker.process.pid} died.`);
+        });
     }
 } else {
     server.listen(PORT, (err) => {
