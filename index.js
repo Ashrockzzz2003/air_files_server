@@ -13,6 +13,7 @@ const { generateKey } = require('./RSA/keyGen');
 const createViews = require('./schema/createViews');
 const establishConnection = require('./initializeConnection.js');
 const fs = require('fs');
+const { hostname } = require('os');
 
 const concurrencyLimit = 10;
 const PORT = 3000;
@@ -51,8 +52,18 @@ if (cluster.isMaster) {
     initializeOne(); // Run only once in production
     initializeTwo(); // Run only once in production
 
-    for (let i = 0; i < concurrencyLimit; i++) {
-        cluster.fork();
+    if (hostname == 'ubuntu') {
+        server.listen(PORT, (err) => {
+            if (err) {
+                console.log('[ERROR]: Error starting server.');
+            } else {
+                console.log(`[MESSAGE]: Process ${pid} listening on PORT ${PORT}`);
+            }
+        });
+    } else {
+        for (let i = 0; i < concurrencyLimit; i++) {
+            cluster.fork();
+        }
     }
 } else {
     server.listen(PORT, (err) => {
