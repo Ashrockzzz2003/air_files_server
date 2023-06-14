@@ -52,15 +52,7 @@ if (cluster.isMaster) {
     initializeOne(); // Run only once in production
     initializeTwo(); // Run only once in production
 
-    server.listen(PORT, (err) => {
-        if (err) {
-            console.log('[ERROR]: Error starting server.');
-        } else {
-            console.log(`[MESSAGE]: Process ${pid} listening from ${hostname} on PORT ${PORT}`);
-        }
-    });
-
-    if (hostname == 'ubuntu') {
+    if (hostname == 'ip-172-31-39-249') {
         server.listen(PORT, (err) => {
             if (err) {
                 console.log('[ERROR]: Error starting server.');
