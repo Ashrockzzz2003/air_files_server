@@ -13,7 +13,8 @@ module.exports = {
     // get userData from token and files from req.files
     testResponse: async (req, res) => {
         return res.status(200).send({
-            "message": "CONNECTION ESTABLISHED"
+            "message": "CONNECTION ESTABLISHED. Welcome AirFiles user!",
+		"team": ["Ashwin Narayanan S", "Deepak Menan R", "A S Sreepadh", "Arjun P"]
         });
     },
 

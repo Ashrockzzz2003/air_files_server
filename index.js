@@ -52,9 +52,7 @@ if (cluster.isMaster) {
     initializeTwo(); // Run only once in production
 
     for (let i = 0; i < concurrencyLimit; i++) {
-        cluster.fork().on('exit', (worker, code, signal) => {
-            console.log(`[MESSAGE]: Worker ${worker.process.pid} died.`);
-        });
+        cluster.fork();
     }
 } else {
     server.listen(PORT, (err) => {
