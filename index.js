@@ -51,11 +51,6 @@ if (cluster.isMaster) {
 
     initializeOne(); // Run only once in production
     initializeTwo(); // Run only once in production
-	// 
-    //for (let i = 0; i < concurrencyLimit; i++) {
-	//	cluster.fork().on('exit', (worker, code, signal) => {
-          //  console.log(`[MESSAGE]: Worker ${worker.process.pid} died.`);
-        //});
 
 	server.listen(PORT, (err) => {
         if (err) {
@@ -63,7 +58,7 @@ if (cluster.isMaster) {
         } else {
             console.log(`[MESSAGE]: Process ${pid} listening on PORT ${PORT}`);
         }
-    		});
+    	});
 } else {
     server.listen(PORT, (err) => {
         if (err) {
